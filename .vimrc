@@ -4,12 +4,16 @@ execute pathogen#infect()
 "Typical formatting stuff
 syntax enable
 filetype plugin indent on 
-colorscheme boltzmann 
+colorscheme gruvbox 
+set background=dark
 set ruler
 set number
 set history=700
 set mouse=a
 set cmdheight=4
+set ts=4
+set sw=4
+set sts=4
 
 "Syntastic stuff
 set statusline+=%#warningmsg#
@@ -22,11 +26,24 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-set t_Co=256
-hi Normal ctermfg=grey ctermbg=darkblue
+"Syntax highlighting of nasm for asm filetypes
+au BufReadPost *.asm set syntax=nasm
 
-"Remappings
+"Undo saving
+" Put plugins and dictionaries in this dir (also on Windows)
+let vimDir = '$HOME/.vim'
+let &runtimepath.=','.vimDir
 
-set ts=4
-set sw=4
-set sts=4
+" Keep undo history across sessions by storing it in a file
+if has('persistent_undo')
+    let myUndoDir = expand(vimDir . '/undodir')
+    " Create dirs
+    call system('mkdir ' . vimDir)
+    call system('mkdir ' . myUndoDir)
+    let &undodir = myUndoDir
+    set undofile
+endif
+
+"Use system clipboard by default
+set clipboard=unnamedplus
+
