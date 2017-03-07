@@ -47,3 +47,11 @@ endif
 "Use system clipboard by default
 set clipboard=unnamedplus
 
+"Enable automatic folding
+set foldmethod=indent
+set foldlevel=1
+set nofoldenable
+set foldclose=all
+
+"Make the left and right keys wrap to the next line
+set whichwrap+=<,>
