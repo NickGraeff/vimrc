@@ -10,7 +10,7 @@ set ruler
 set number
 set history=700
 set mouse=a
-set cmdheight=4
+set cmdheight=2
 set ts=4
 set sw=4
 set sts=4
@@ -34,15 +34,15 @@ au BufReadPost *.asm set syntax=nasm
 let vimDir = '$HOME/.vim'
 let &runtimepath.=','.vimDir
 
-" Keep undo history across sessions by storing it in a file
-if has('persistent_undo')
-    let myUndoDir = expand(vimDir . '/undodir')
-    " Create dirs
-    call system('mkdir ' . vimDir)
-    call system('mkdir ' . myUndoDir)
-    let &undodir = myUndoDir
-    set undofile
-endif
+	" Keep undo history across sessions by storing it in a file
+	if has('persistent_undo')
+		let myUndoDir = expand(vimDir . '/undodir')
+		" Create dirs
+		call system('mkdir ' . vimDir)
+		call system('mkdir ' . myUndoDir)
+		let &undodir = myUndoDir
+		set undofile
+	endif
 
 "Use system clipboard by default
 set clipboard=unnamedplus
@@ -52,6 +52,4 @@ set foldmethod=indent
 set foldlevel=1
 set nofoldenable
 set foldclose=all
-
-"Make the left and right keys wrap to the next line
-set whichwrap+=<,>
+set autoindent
