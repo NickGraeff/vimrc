@@ -46,7 +46,7 @@ let &runtimepath.=','.vimDir
 	endif
 
 "Use system clipboard by default
-set clipboard=unnamedplus
+set clipboard=unnamed
 
 "Enable automatic folding
 set foldmethod=indent
@@ -54,3 +54,27 @@ set foldlevel=1
 set nofoldenable
 set foldclose=all
 set autoindent
+
+"Highlight cursor line
+set cursorline
+
+"Vertical cursor?
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=1\x7"
+
+"Fucking mac mapping
+set backspace=indent,eol,start
+imap <C-[>b <C-o>ge
+imap <C-[>f <C-o>w
+nmap <C-[>b ge
+nmap <C-[>f w
+vmap <C-[>b ge
+vmap <C-[>f w
+nmap <C-?> "_d<Left>
+imap <C-D> <C-o>"_x
+nmap <C-D> "_x
+imap <C-[>d <C-o>dw
+nmap <C-[>d dw
+imap <C-[><C-?> <C-o>db
+nmap <C-[><C-?> db
