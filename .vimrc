@@ -5,6 +5,7 @@ execute pathogen#infect()
 syntax enable
 filetype plugin indent on 
 colorscheme gruvbox 
+set copyindent
 set t_Co=256
 set background=dark
 set ruler
@@ -58,23 +59,3 @@ set autoindent
 "Highlight cursor line
 set cursorline
 
-"Vertical cursor?
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_SR = "\<Esc>]50;CursorShape=1\x7"
-let &t_EI = "\<Esc>]50;CursorShape=1\x7"
-
-"Fucking mac mapping
-set backspace=indent,eol,start
-imap <C-[>b <C-o>ge
-imap <C-[>f <C-o>w
-nmap <C-[>b ge
-nmap <C-[>f w
-vmap <C-[>b ge
-vmap <C-[>f w
-nmap <C-?> "_d<Left>
-imap <C-D> <C-o>"_x
-nmap <C-D> "_x
-imap <C-[>d <C-o>dw
-nmap <C-[>d dw
-imap <C-[><C-?> <C-o>db
-nmap <C-[><C-?> db
